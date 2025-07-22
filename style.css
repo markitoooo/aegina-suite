@@ -1,131 +1,91 @@
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: 'Inter', sans-serif;
-  background: #ffffff;
-  color: #111827;
-  line-height: 1.6;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: linear-gradient(to bottom, #0a0a0a, #121212);
+  color: white;
+  overflow-x: hidden;
   cursor: none;
+  padding-bottom: 5rem;
 }
-.container {
-  width: 90%;
-  max-width: 1100px;
+
+/* Typography and Layout */
+header {
+  text-align: center;
+  margin: 5rem auto;
+}
+h1 {
+  font-size: 3rem;
+  color: #00baff;
+}
+.subtitle {
+  color: #999;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+}
+section {
+  padding: 4rem 2rem;
+  max-width: 900px;
   margin: auto;
 }
-
-/* Navbar */
-.navbar {
-  background-color: #0f172a;
-  padding: 1.5rem 0;
-  color: white;
-}
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #3b82f6;
-}
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-.nav-links a {
-  color: white;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-/* Hero */
-.hero {
-  background: linear-gradient(135deg, #3b82f6, #0f172a);
-  color: white;
-  padding: 5rem 0;
-  text-align: center;
-}
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-/* Section headers */
-.section {
-  padding: 4rem 0;
-  border-bottom: 1px solid #e5e7eb;
-}
-.section h2 {
+h2 {
   font-size: 2rem;
-  font-weight: 700;
-  color: #0f172a;
   margin-bottom: 1rem;
-  border-bottom: 2px solid #3b82f6;
-  display: inline-block;
+  border-bottom: 2px solid #00baff;
+  padding-bottom: 0.3rem;
+}
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
 }
 
-/* Cards */
-.team-cards {
-  display: flex;
+/* Team Cards */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  flex-wrap: wrap;
-  justify-content: center;
 }
 .card {
-  background: #f9fafb;
-  border-radius: 10px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-  padding: 2rem;
-  width: 300px;
-  text-align: center;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
 }
 .card:hover {
   transform: translateY(-5px);
 }
-.card .avatar {
-  background: #3b82f6;
-  color: white;
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 1rem;
-  border-radius: 50%;
-  line-height: 70px;
-  font-weight: 700;
-}
 .card .role {
-  font-weight: 600;
-  color: #2563eb;
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #ccc;
 }
-.card .more-info {
+.more-info {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #aaa;
   display: none;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  color: #374151;
-  text-align: left;
 }
-.card.expanded .more-info {
+.card:focus .more-info,
+.card[aria-expanded='true'] .more-info {
   display: block;
 }
 
-/* Download button */
-.btn-download {
+/* Download Button */
+.download-btn {
   display: inline-block;
-  margin-top: 1rem;
   padding: 0.75rem 1.5rem;
-  background: #3b82f6;
-  color: white;
-  font-weight: 600;
+  border: 1px solid #00baff;
+  color: #00baff;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.download-btn:hover {
+  background-color: #00baff;
+  color: #fff;
 }
 
 /* Custom Cursor */
@@ -133,19 +93,17 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 14px;
-  height: 14px;
-  border: 2px solid white;
+  width: 12px;
+  height: 12px;
+  background: white;
   border-radius: 50%;
+  box-shadow: 0 0 5px rgba(255,255,255,0.5);
   pointer-events: none;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  z-index: 10000;
   transform: translate(-50%, -50%);
-  z-index: 9999;
-  mix-blend-mode: difference;
 }
-@media (hover: none) {
+@media (max-width: 768px) {
   #custom-cursor {
     display: none;
   }
 }
-
