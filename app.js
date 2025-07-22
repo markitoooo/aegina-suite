@@ -6,6 +6,7 @@ gsap.from(".hero-title", {
   ease: "power4.out",
   delay: 0.5,
 });
+
 gsap.from(".hero-subtitle", {
   duration: 1.3,
   y: 40,
@@ -13,6 +14,7 @@ gsap.from(".hero-subtitle", {
   ease: "power3.out",
   delay: 0.8,
 });
+
 gsap.from(".btn-primary", {
   duration: 1.3,
   y: 30,
@@ -21,7 +23,7 @@ gsap.from(".btn-primary", {
   delay: 1,
 });
 
-// Expand/collapse team bios
+// Expand/collapse team bios with accessibility
 document.querySelectorAll(".team-card.expandable").forEach((card) => {
   card.addEventListener("click", () => toggleBio(card));
   card.addEventListener("keydown", (e) => {
@@ -37,7 +39,7 @@ function toggleBio(card) {
   card.setAttribute("aria-expanded", !expanded);
 }
 
-// THREE.JS Hero Background animation
+// THREE.JS Hero Background animation setup
 
 const canvas = document.getElementById("hero-canvas");
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
@@ -54,9 +56,8 @@ const camera = new THREE.PerspectiveCamera(
 );
 camera.position.z = 15;
 
-// Create a smooth animated geometry (a sphere with noise)
-
 const geometry = new THREE.IcosahedronGeometry(6, 4);
+
 const material = new THREE.MeshPhysicalMaterial({
   color: 0x0071f3,
   clearcoat: 1,
@@ -74,7 +75,7 @@ scene.add(sphere);
 
 const clock = new THREE.Clock();
 
-// Simple noise function to distort vertices over time
+// Simple noise function for vertex distortion over time
 function noise(x, y, z) {
   return (
     Math.sin(x * 3 + clock.getElapsedTime() * 2) +
@@ -88,14 +89,14 @@ function animate() {
 
   const time = clock.getElapsedTime();
 
-  // Distort vertices
+  // Distort vertices dynamically
   geometry.vertices.forEach((v) => {
     const n = noise(v.x, v.y, v.z);
     v.normalize().multiplyScalar(6 + n * 0.3);
   });
   geometry.verticesNeedUpdate = true;
 
-  // Rotate sphere slowly
+  // Slow rotation of sphere
   sphere.rotation.x = time * 0.05;
   sphere.rotation.y = time * 0.06;
 
@@ -104,7 +105,7 @@ function animate() {
 
 animate();
 
-// Responsive resize
+// Responsive canvas resize handler
 window.addEventListener("resize", () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   camera.aspect = window.innerWidth / window.innerHeight;
