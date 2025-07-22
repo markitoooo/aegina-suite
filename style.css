@@ -16,6 +16,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background: linear-gradient(to bottom, #f0f4f8, #ffffff);
+    background-attachment: fixed;
+}
 /* Navigation Bar */
 nav {
     position: fixed;
