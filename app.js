@@ -1,69 +1,79 @@
-// Register GSAP plugin
-gsap.registerPlugin(ScrollTrigger);
+// Smooth scroll active nav highlight and scroll animation for sections
 
-// Animate header on load: subtle fade + slide down
-gsap.from('.site-title', {
-  opacity: 0,
-  y: -20,
-  duration: 1.2,
-  ease: 'power3.out',
-});
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('section, header');
+  const menuLinks = document.querySelectorAll('.menu-link');
 
-// Animate nav links sequentially on load
-gsap.from('.nav-links li', {
-  opacity: 0,
-  y: -15,
-  duration: 0.8,
-  stagger: 0.15,
-  delay: 0.3,
-  ease: 'power3.out',
-});
+  function debounce(func, wait = 10, immediate = false) {
+    let timeout;
+    return function () {
+      const context = this, args = arguments;
+      const later = function () {
+        timeout = null;
+        if (!immediate) func.apply(context, args);
+      };
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, args);
+    };
+  }
 
-// Scroll-triggered animations for sections
-const sections = document.querySelectorAll('.section');
+  function activateMenuLink() {
+    let scrollPos = window.scrollY || window.pageYOffset;
+    sections.forEach(section => {
+      const top = section.offsetTop - 80;
+      const bottom = top + section.offsetHeight;
+      const id = section.id;
 
-sections.forEach((section) => {
-  gsap.from(section, {
-    scrollTrigger: {
-      trigger: section,
-      start: 'top 80%',
-      toggleActions: 'play none none none',
-    },
-    opacity: 0,
-    y: 40,
-    duration: 1,
-    ease: 'power3.out',
-    delay: 0.2,
+      if (scrollPos >= top && scrollPos < bottom) {
+        menuLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }
+
+  window.addEventListener('scroll', debounce(activateMenuLink, 20));
+
+  // Animate sections on scroll (fade in + translate)
+  function animateOnScroll() {
+    const windowBottom = window.innerHeight + window.scrollY;
+    sections.forEach(section => {
+      const revealPoint = section.offsetTop + 100;
+      if (windowBottom > revealPoint) {
+        section.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', debounce(animateOnScroll, 20));
+  animateOnScroll();
+
+  // Team cards expand/collapse details on click or keyboard
+  const teamCards = document.querySelectorAll('.team-card');
+  teamCards.forEach(card => {
+    card.addEventListener('click', () => toggleCard(card));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleCard(card);
+      }
+    });
   });
-});
 
-// Animate team members with stagger on scroll
-gsap.utils.toArray('.team-member').forEach((member) => {
-  gsap.from(member, {
-    scrollTrigger: {
-      trigger: member,
-      start: 'top 85%',
-      toggleActions: 'play none none none',
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    ease: 'power3.out',
-    stagger: 0.2,
-  });
-});
-
-// Smooth scroll for nav links
-document.querySelectorAll('.nav-links a').forEach((link) => {
-  link.addEventListener('click', (e) => {
-    e.preventDefault();
-    const targetID = link.getAttribute('href').slice(1);
-    const targetSection = document.getElementById(targetID);
-    if (targetSection) {
-      window.scrollTo({
-        top: targetSection.offsetTop - 70,
-        behavior: 'smooth',
-      });
+  function toggleCard(card) {
+    const info = card.querySelector('.team-info');
+    const expanded = card.getAttribute('aria-expanded') === 'true';
+    if (expanded) {
+      info.hidden = true;
+      card.setAttribute('aria-expanded', 'false');
+    } else {
+      info.hidden = false;
+      card.setAttribute('aria-expanded', 'true');
     }
-  });
+  }
 });
