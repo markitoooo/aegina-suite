@@ -1,150 +1,184 @@
-/* RESET & BASE */
-* {
+/* Base reset */
+*, *::before, *::after {
   box-sizing: border-box;
 }
-
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   background: linear-gradient(135deg, #e3dbd0, #c2b8a3);
   color: #3c3c3c;
   line-height: 1.6;
-  font-weight: 400;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
-/* NAVBAR */
-.navbar {
-  background-color: rgba(131, 112, 96, 0.85);
-  padding: 20px 40px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  color: #faf8f5;
-  font-weight: 700;
-  font-size: 24px;
-  letter-spacing: 1.1px;
-  display: flex;
-  align-items: center;
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/* Navbar */
+nav {
+  background-color: rgba(131, 112, 96, 0.95);
+  padding: 18px 40px;
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: saturate(180%) blur(12px);
-}
-
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 100px 20px 70px;
-  max-width: 900px;
-  margin: 0 auto;
-  color: #4b3f36;
-  text-shadow: 0 0 3px rgba(255 255 255 / 0.7);
-}
-
-.hero h1 {
-  font-size: 3.2rem;
-  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #faf8f5;
   font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 1.2px;
+  user-select: none;
+}
+nav .logo {
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: 1.5px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+nav ul li a:hover {
+  color: #d6c9b8;
+}
+
+/* Hero Section */
+.hero {
+  padding: 120px 20px 70px;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+  color: #4b3f36;
+  text-shadow: 0 0 4px rgba(255 255 255 / 0.6);
+}
+.hero h1 {
+  font-size: 3.8rem;
+  margin-bottom: 20px;
+  font-weight: 900;
   line-height: 1.1;
 }
-
 .hero p {
-  font-size: 1.35rem;
-  max-width: 620px;
+  font-size: 1.5rem;
+  max-width: 720px;
   margin: 0 auto;
-  font-weight: 400;
-  opacity: 0.88;
+  font-weight: 500;
+  opacity: 0.85;
+  line-height: 1.5;
 }
 
-/* CONTAINER */
-.container {
-  max-width: 900px;
+/* Main Container */
+main.container {
+  max-width: 960px;
   margin: 0 auto;
-  padding: 40px 20px 80px;
+  padding: 50px 20px 80px;
   flex-grow: 1;
 }
 
-/* SECTION TITLES */
-h2 {
-  font-size: 2.5rem;
-  margin-bottom: 32px;
-  color: #6a5b4d;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+/* About Section */
+section.about {
+  margin-bottom: 80px;
   text-align: center;
-}
-
-/* ABOUT */
-.about p {
-  font-size: 1.125rem;
   color: #5a5047;
-  max-width: 720px;
-  margin: 0 auto 70px;
-  line-height: 1.6;
-  text-align: center;
 }
-
-/* TEAM GRID */
-.team-grid {
-  display: flex;
-  gap: 28px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.team-card {
-  background-color: #fff;
-  flex: 1 1 320px;
-  padding: 30px 28px;
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(129, 106, 83, 0.18);
-  transition: box-shadow 0.3s ease, transform 0.25s ease;
-  text-align: center;
-  cursor: default;
-}
-
-.team-card:hover {
-  box-shadow: 0 14px 38px rgba(129, 106, 83, 0.33);
-  transform: translateY(-5px);
-}
-
-.team-card h3 {
-  margin-top: 0;
-  margin-bottom: 14px;
+section.about h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
   font-weight: 700;
-  font-size: 1.55rem;
-  color: #6a5b4d;
+  letter-spacing: 0.05em;
+}
+section.about p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.65;
+  opacity: 0.85;
 }
 
-.team-card p {
-  margin: 0;
-  color: #8a7d72;
-  font-weight: 500;
-  font-size: 1.05rem;
-}
-
-/* REPORT */
-.report {
-  text-align: center;
-  margin-top: 80px;
+/* Team Section */
+section.team {
   margin-bottom: 100px;
 }
+section.team h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #6a5b4d;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.team-cards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.team-card {
+  background: #faf8f5;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(129, 106, 83, 0.18);
+  flex: 1 1 320px;
+  max-width: 320px;
+  padding: 30px 24px;
+  text-align: center;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.team-card:hover {
+  box-shadow: 0 18px 40px rgba(129, 106, 83, 0.32);
+  transform: translateY(-7px);
+}
+.team-photo {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-color: #c2b8a3;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #837060;
+  font-weight: 900;
+  user-select: none;
+  box-shadow: 0 6px 12px rgba(131, 112, 96, 0.3);
+}
+.team-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #6a5b4d;
+}
+.team-card p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: #7b6f66;
+}
 
+/* Report Section */
+.report {
+  text-align: center;
+  margin-bottom: 80px;
+}
 .btn-download {
-  display: inline-block;
   background-color: #837060;
   color: #faf8f5;
   font-weight: 700;
-  font-size: 1.2rem;
-  padding: 16px 42px;
+  font-size: 1.25rem;
+  padding: 16px 48px;
   border-radius: 48px;
-  text-decoration: none;
-  box-shadow: 0 6px 20px rgba(131, 112, 96, 0.4);
+  box-shadow: 0 6px 20px rgba(131, 112, 96, 0.45);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
+  display: inline-block;
+  cursor: pointer;
 }
-
 .btn-download:hover,
 .btn-download:focus {
   background-color: #6b584c;
@@ -152,29 +186,40 @@ h2 {
   outline: none;
 }
 
-/* FOOTER */
+/* Footer */
 footer {
-  background: #e3dbd0;
+  background: #c2b8a3;
+  color: #4b3f36;
   text-align: center;
-  padding: 25px 15px;
-  color: #6a5b4d;
-  font-size: 0.95rem;
-  font-weight: 500;
+  padding: 28px 20px;
+  font-weight: 600;
   user-select: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  box-shadow: inset 0 1px 2px rgba(255 255 255 / 0.3);
 }
 
-/* RESPONSIVE */
-@media (max-width: 720px) {
+/* Responsive */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.2rem;
+  }
   .hero h1 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
   }
   .hero p {
     font-size: 1.15rem;
   }
-  .team-card {
-    flex: 1 1 100%;
+  .team-cards {
+    flex-direction: column;
+    gap: 30px;
   }
-  .container {
-    padding: 30px 15px 60px;
+  .team-card {
+    max-width: 100%;
+  }
+  main.container {
+    padding: 40px 15px 60px;
   }
 }
