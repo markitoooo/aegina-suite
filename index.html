@@ -1,82 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aegina Suite Ike | Luxury Property Management</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <!-- Three.js -->
-  <script src="https://cdn.jsdelivr.net/npm/three@0.155.0/build/three.min.js"></script>
-</head>
 <body>
-
-  <nav class="navbar" role="navigation" aria-label="Primary Navigation">
+  <nav class="navbar" role="navigation" aria-label="Primary navigation">
     <div class="nav-container">
-      <a href="#" class="logo" aria-label="Aegina Suite Ike homepage">Aegina Suite Ike</a>
+      <a href="#home" class="logo" aria-current="page">Aegina Suites IKE</a>
       <ul class="nav-menu">
-        <li><a href="#hero" tabindex="0">Home</a></li>
         <li><a href="#about" tabindex="0">About</a></li>
         <li><a href="#team" tabindex="0">Team</a></li>
-        <li><a href="#report" tabindex="0">Report</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero-section" aria-label="Introduction">
+  <section id="home" class="hero-section" role="banner" aria-label="Welcome to Aegina Suites IKE">
     <canvas id="hero-canvas" aria-hidden="true"></canvas>
-    <div class="hero-content">
-      <h1 class="hero-title">Property Management in the Saronic Gulf</h1>
-      <p class="hero-subtitle">Delivering boutique luxury experiences in Aegina, Hydra, and Poros</p>
-      <a href="#about" class="btn-primary" aria-label="Learn more about us">Learn More</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="content-section" tabindex="-1" aria-labelledby="about-heading">
-    <hr class="section-separator" />
-    <h2 id="about-heading">About Us</h2>
-    <p>
-      Aegina Suite Ike offers premier property management services in the Saronic Gulf, providing luxury, comfort, and flawless hospitality tailored for discerning clients and visitors.
-    </p>
+    <h1 class="hero-title">Aegina Suites IKE</h1>
+    <p class="hero-subtitle">Currently delivering boutique luxury experiences in Aegina</p>
+    <a href="#team" class="btn-primary" role="button" tabindex="0">Meet Our Team</a>
   </section>
 
   <!-- Team Section -->
-  <section id="team" class="content-section" tabindex="-1" aria-labelledby="team-heading">
+  <section id="team" class="content-section" aria-label="Meet the team at Aegina Suites IKE">
+    <h2>Our Team</h2>
     <hr class="section-separator" />
-    <h2 id="team-heading">Our Team</h2>
-    <div class="team-grid">
-      <article class="team-card expandable" tabindex="0" aria-expanded="false" aria-controls="panagiotis-bio">
-        <h3 class="team-name">PANAGIOTIS MARKIDIS</h3>
-        <p class="team-role">CEO & Co-Founder</p>
-        <div id="panagiotis-bio" class="team-bio">
-          <p>Panagiotis brings 15+ years of luxury property management experience with a focus on client satisfaction and operational excellence.</p>
-        </div>
-      </article>
-
-      <article class="team-card expandable" tabindex="0" aria-expanded="false" aria-controls="christina-bio">
-        <h3 class="team-name">CHRISTINA ECONOMOPOULOU</h3>
-        <p class="team-role">COO & Co-Founder</p>
-        <div id="christina-bio" class="team-bio">
-          <p>Christina oversees day-to-day operations ensuring seamless service delivery and innovative guest experiences.</p>
-        </div>
-      </article>
+    <div class="team-container">
+      <div class="team-grid">
+        <article class="team-card expandable" tabindex="0" role="button" aria-expanded="false" aria-controls="bio1" id="member1">
+          <h3 class="team-name">John Doe</h3>
+          <p class="team-role">Founder & CEO</p>
+          <p class="team-bio" id="bio1" hidden>
+            John brings 20 years of hospitality experience and a passion for boutique luxury.
+          </p>
+        </article>
+        <article class="team-card expandable" tabindex="0" role="button" aria-expanded="false" aria-controls="bio2" id="member2">
+          <h3 class="team-name">Jane Smith</h3>
+          <p class="team-role">Creative Director</p>
+          <p class="team-bio" id="bio2" hidden>
+            Jane oversees design and guest experience, crafting unforgettable stays.
+          </p>
+        </article>
+        <!-- Add more team members as needed -->
+      </div>
     </div>
   </section>
-
-  <!-- Report Section -->
-  <section id="report" class="content-section" tabindex="-1" aria-labelledby="report-heading">
-    <hr class="section-separator" />
-    <h2 id="report-heading">Annual Earnings Report</h2>
-    <a href="assets/AeginaSuiteIke_AnnualReport2024.pdf" download class="btn-primary" aria-label="Download Annual Earnings Report">
-      Download Report
-    </a>
-  </section>
-
-  <script src="app.js" defer></script>
 </body>
-</html>
-
