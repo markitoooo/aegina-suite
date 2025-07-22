@@ -121,7 +121,7 @@ nav ul li a {
     }
 
     main {
-        padding-top: 150px;
+        padding-top: 150px; /* Increased from 100px for more spacing */
     }
 
     .section {
@@ -148,7 +148,7 @@ nav ul li a {
 
 @media (max-width: 480px) {
     main {
-        padding-top: 80px;
+        padding-top: 120px; /* Increased from 80px for more spacing */
     }
 
     #header h1 {
