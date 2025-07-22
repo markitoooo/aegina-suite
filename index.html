@@ -1,56 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aegina Suites IKE</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegina Suites IKE</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="glass-nav">
-      <a href="#home">Home</a>
-      <a href="#team">Team</a>
-      <a href="#earnings">Earnings</a>
-      <a href="#contact">Contact</a>
+    <nav>
+        <ul>
+            <li><a href="#header">Home</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#annual-report">Annual Report</a></li>
+        </ul>
     </nav>
-  </header>
-
-  <main>
-    <section id="home" class="hero-section">
-      <h1 class="main-title">Aegina Suites IKE</h1>
-      <p class="subtitle">Delivering boutique luxury experiences in Aegina</p>
-    </section>
-
-    <section id="team" class="team-section">
-      <h2>Our Team</h2>
-      <div class="team-members">
-        <div class="member">
-          <h3>Panagiotis Markidis</h3>
-          <p>Founder & CEO</p>
-        </div>
-        <div class="member">
-          <h3>Christina Economopoulou</h3>
-          <p>Operations Manager</p>
-        </div>
-        <!-- Add more members if needed -->
-      </div>
-    </section>
-
-    <section id="earnings" class="earnings-section">
-      <h2>Annual Earnings Report</h2>
-      <a href="AeginaSuite_AnnualReport.pdf" download class="download-button">
-        Download Report (PDF)
-      </a>
-    </section>
-
-    <section id="contact" class="contact-section">
-      <h2>Contact Us</h2>
-      <p>Email: info@aeginasuites.gr</p>
-      <p>Phone: +30 210 1234567</p>
-    </section>
-  </main>
-
-  <script src="app.js"></script>
+    <main>
+        <section id="header" class="section">
+            <h1>Aegina Suites IKE</h1>
+            <p>Delivering boutique luxury experiences in Aegina</p>
+        </section>
+        <section id="team" class="section">
+            <h2>Our Team</h2>
+            <div class="team">
+                <div class="team-member">
+                    <h3>Panagiotis Markidis</h3>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <h3>Christina Economopoulou</h3>
+                    <p>Operations & Guest Relations</p>
+                </div>
+            </div>
+        </section>
+        <section id="annual-report" class="section">
+            <h2>Annual Report</h2>
+            <a href="AeginaSuite_AnnualReport.pdf" download>Download Annual Report</a>
+        </section>
+    </main>
+    <script src="app.js"></script>
 </body>
 </html>
