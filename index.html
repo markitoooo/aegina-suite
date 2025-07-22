@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aegina Suite IKE</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-container">
+      <div class="logo">Aegina Suite IKE</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#report">Report</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <h1 id="animated-title">Property Management in the Saronic Gulf</h1>
+      <p>Your trusted partner in premium property management.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section">
+      <h2>About Us</h2>
+      <p>Aegina Suite IKE is a premium property management company focused on delivering personalized, high-quality service in the Saronic Gulf. We ensure seamless property operations, from leasing to maintenance and guest care.</p>
+    </section>
+
+    <section id="team" class="section">
+      <h2>Our Team</h2>
+      <div class="team-cards">
+        <div class="card" onclick="toggleExpand(this)">
+          <div class="avatar">PM</div>
+          <h3>PANAGIOTIS MARKIDIS</h3>
+          <p class="role">CEO & Co-Founder</p>
+          <div class="more-info">
+            <p>Panagiotis has over 15 years in real estate and finance. He leads the strategic vision and business development of Aegina Suite IKE.</p>
+          </div>
+        </div>
+        <div class="card" onclick="toggleExpand(this)">
+          <div class="avatar">CE</div>
+          <h3>CHRISTINA ECONOMOPOULOU</h3>
+          <p class="role">COO & Co-Founder</p>
+          <div class="more-info">
+            <p>Christina brings hospitality and operations expertise to ensure exceptional client experience and streamlined property services.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="report" class="section">
+      <h2>Annual Earnings Report</h2>
+      <a href="annual_earnings_report.pdf" download class="btn-download">Download the Report</a>
+    </section>
+  </main>
+
+  <div id="custom-cursor"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script>
+    gsap.fromTo(\"#animated-title\", {opacity: 0, y: 50}, {opacity: 1, y: 0, duration: 1.5, ease: \"power2.out\"});
+    
+    function toggleExpand(el) {
+      el.classList.toggle('expanded');
+    }
+
+    const cursor = document.getElementById(\"custom-cursor\");
+    document.addEventListener(\"mousemove\", e => {
+      cursor.style.left = e.clientX + \"px\";
+      cursor.style.top = e.clientY + \"px\";
+    });
+  </script>
+</body>
+</html>
 
