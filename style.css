@@ -40,7 +40,7 @@ nav:hover {
 }
 
 nav ul {
-    display: flex;
+    display: flex; /* Ensured visibility on desktop */
     justify-content: center;
     list-style: none;
     padding: 0;
