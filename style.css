@@ -35,6 +35,9 @@ body {
 }
 
 .glass-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   border-radius: 2rem;
