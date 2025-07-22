@@ -13,17 +13,25 @@ body {
 }
 
 .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 1rem 2rem;
+  z-index: 1000;
   background: transparent;
 }
 
 .logo {
+  position: absolute;
+  left: 2rem;
   font-family: 'Circular', sans-serif;
   font-weight: bold;
   font-size: 1.5rem;
+  color: #000;
 }
 
 .glass-menu {
