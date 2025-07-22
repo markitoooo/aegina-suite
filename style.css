@@ -248,7 +248,11 @@ nav ul li a {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+#annual-report a {
+    transition: all 0.3s ease;
+}
 #annual-report a:hover {
+    transform: scale(1.05);
     background-color: #146EF5;
     color: white;
 }
