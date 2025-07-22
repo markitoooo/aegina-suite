@@ -5,7 +5,20 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
+        if (window.innerWidth <= 768) {
+            document.querySelector('.nav-menu').classList.remove('active');
+            document.querySelector('.menu-toggle').classList.remove('active');
+        }
     });
+});
+
+// Toggle mobile menu
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });
 
 // Fade-in animation on scroll
