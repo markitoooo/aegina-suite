@@ -1,39 +1,150 @@
-// Animate the title on load using GSAP
-gsap.from("#animated-title", {
-  duration: 1.8,
-  y: 50,
-  opacity: 0,
-  ease: "power3.out",
-});
-
-// Custom cursor setup
-const cursor = document.getElementById("custom-cursor");
-
-function updateCursor(e) {
-  cursor.style.left = e.clientX + "px";
-  cursor.style.top = e.clientY + "px";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-document.addEventListener("mousemove", updateCursor);
-
-// Hide cursor on touch devices
-function isTouchDevice() {
-  return 'ontouchstart' in window || navigator.maxTouchPoints;
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+  cursor: none;
 }
-if (isTouchDevice()) {
-  document.body.classList.add("no-cursor");
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
 }
 
-// Expand/collapse team bios
-const cards = document.querySelectorAll(".card.expandable");
-cards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const expanded = card.getAttribute("aria-expanded") === "true";
-    card.setAttribute("aria-expanded", !expanded);
-  });
-  card.addEventListener("keydown", (e) => {
-    if (e.key === "Enter" || e.key === " ") {
-      e.preventDefault();
-      card.click();
-    }
-  });
-});
+/* Navbar */
+.navbar {
+  background-color: #0f172a;
+  padding: 1.5rem 0;
+  color: white;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #3b82f6;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+.nav-links a {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #3b82f6, #0f172a);
+  color: white;
+  padding: 5rem 0;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Section headers */
+.section {
+  padding: 4rem 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+.section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #3b82f6;
+  display: inline-block;
+}
+
+/* Cards */
+.team-cards {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.card {
+  background: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  padding: 2rem;
+  width: 300px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-5px);
+}
+.card .avatar {
+  background: #3b82f6;
+  color: white;
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  line-height: 70px;
+  font-weight: 700;
+}
+.card .role {
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+.card .more-info {
+  display: none;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  color: #374151;
+  text-align: left;
+}
+.card.expanded .more-info {
+  display: block;
+}
+
+/* Download button */
+.btn-download {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #3b82f6;
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+}
+
+/* Custom Cursor */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: difference;
+}
+@media (hover: none) {
+  #custom-cursor {
+    display: none;
+  }
+}
