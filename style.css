@@ -1,1 +1,226 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+  cursor: none; /* hide default cursor on desktop */
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #3b82f6;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #93c5fd;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  color: #fff;
+  padding: 6rem 0 4rem 0;
+  text-align: center;
+  user-select: none;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  opacity: 0;
+}
+
+/* Animated title will fade in with JS */
+
+/* Main Content */
+.main-content {
+  padding: 4rem 0;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 4rem;
+}
+
+/* About Us */
+.about h2,
+.team h2,
+.report h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.about p {
+  max-width: 750px;
+  font-size: 1.125rem;
+  color: #374151;
+}
+
+/* Team */
+.team-cards {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #f9fafb;
+  border-radius: 10px;
+  padding: 2rem;
+  width: 320px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.card:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+}
+
+.avatar {
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+}
+
+.role {
+  font-weight: 600;
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+.more-info {
+  font-size: 1rem;
+  color: #4b5563;
+  margin-top: 1rem;
+  text-align: left;
+  line-height: 1.4;
+}
+
+/* Buttons */
+.btn-download {
+  display: inline-block;
+  background: #3b82f6;
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(59,130,246,0.3);
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.btn-download:hover {
+  background: #2563eb;
+  box-shadow: 0 8px 20px rgba(37,99,235,0.5);
+}
+
+/* Footer */
+.footer {
+  background: #111827;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Animation Canvas */
+#animation-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Custom Cursor */
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: width 0.15s ease, height 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 0 5px rgba(255 255 255 / 0.3);
+  mix-blend-mode: difference;
+  z-index: 10000;
+  display: none; /* hidden on mobile by default */
+}
+
+/* Show custom cursor on desktop only */
+@media (hover: hover) and (pointer: fine) {
+  #custom-cursor {
+    display: block;
+  }
+}
