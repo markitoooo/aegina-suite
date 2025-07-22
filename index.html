@@ -18,7 +18,8 @@
 
   <header id="home" class="hero-section">
     <h1 class="main-title">
-      Property Management in the <span class="highlighted-border">Saronic Gulf</span>
+      Property Management in the
+      <span class="highlighted-border">Saronic Gulf</span>
     </h1>
     <p class="subtitle">Currently delivering boutique luxury experiences in Aegina</p>
   </header>
@@ -36,27 +37,35 @@
   <section id="team" class="section team-section">
     <h2 class="section-title">Our Team</h2>
     <div class="team-cards">
-      <div class="team-card">
+      <div class="team-card" tabindex="0" role="button" aria-expanded="false" aria-controls="panagiotis-info" data-member="panagiotis">
         <h3 class="team-name">PANAGIOTIS MARKIDIS</h3>
         <p class="team-role">CEO & Co-founder</p>
-        <p class="team-description">15 years of experience in property management. Leads with vision and strategic clarity.</p>
+        <div class="team-info" id="panagiotis-info" hidden>
+          <p>Panagiotis has 15 years of experience in property management and leads the company with strategic vision.</p>
+        </div>
       </div>
-      <div class="team-card">
+
+      <div class="team-card" tabindex="0" role="button" aria-expanded="false" aria-controls="christina-info" data-member="christina">
         <h3 class="team-name">CHRISTINA ECONOMOPOULOU</h3>
         <p class="team-role">COO & Co-founder</p>
-        <p class="team-description">Expert in hospitality operations and quality control. Elevates client experience.</p>
+        <div class="team-info" id="christina-info" hidden>
+          <p>Christina oversees operations and ensures excellence in service delivery across all properties.</p>
+        </div>
       </div>
-      <div class="team-card">
+
+      <div class="team-card" tabindex="0" role="button" aria-expanded="false" aria-controls="advisor-info" data-member="advisor">
         <h3 class="team-name">GEORGE PAPADOPOULOS</h3>
         <p class="team-role">Financial Advisor</p>
-        <p class="team-description">Oversees fiscal planning and growth strategies for long-term success.</p>
+        <div class="team-info" id="advisor-info" hidden>
+          <p>George brings financial expertise to guide sustainable and profitable development for the company.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <section id="report" class="section report-section">
     <h2 class="section-title">Annual Earnings Report</h2>
-    <a href="annual-earnings-report.pdf" download class="download-btn">Download Report</a>
+    <a href="annual-earnings-report.pdf" download class="download-btn" aria-label="Download Annual Earnings Report">Download Report</a>
     <p class="report-description">
       Our most recent annual report reflects record growth in boutique hospitality investments across Aegina.
     </p>
@@ -64,7 +73,6 @@
 
   <footer class="footer">
     <p>© 2025 Aegina Suites IKE. All rights reserved.</p>
-    <p>Website concept inspired by Apple & Wix design philosophy.</p>
   </footer>
 
   <script src="script.js"></script>
