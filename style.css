@@ -1,133 +1,189 @@
-/* Reset and basics */
+/* RESET & BASE */
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
-  background-color: #f9f7f2;
-  color: #333;
+  background: linear-gradient(-45deg, #f2ede6, #d9d1c7, #c2b8a3, #e7e1d1);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+  color: #3c3c3c;
   line-height: 1.6;
+  font-weight: 400;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Navbar */
+/* Background animation */
+@keyframes gradientAnimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* NAVBAR */
 .navbar {
-  background-color: #6b584c;
+  background-color: rgba(131, 112, 96, 0.85);
   padding: 20px 40px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-  color: #f9f7f2;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  color: #faf8f5;
   font-weight: 700;
   font-size: 24px;
-  letter-spacing: 1.2px;
+  letter-spacing: 1.1px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: saturate(180%) blur(12px);
 }
 
-/* Hero section */
+/* HERO */
 .hero {
   text-align: center;
-  padding: 80px 20px 60px;
-  background: #d9cfc3;
-  color: #3b2f2f;
+  padding: 100px 20px 70px;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #4b3f36;
+  text-shadow: 0 0 3px rgba(255 255 255 / 0.7);
 }
 
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 16px;
+  font-size: 3.2rem;
+  margin-bottom: 20px;
   font-weight: 700;
+  line-height: 1.1;
 }
 
 .hero p {
-  font-size: 1.25rem;
-  max-width: 600px;
+  font-size: 1.35rem;
+  max-width: 620px;
   margin: 0 auto;
   font-weight: 400;
-  opacity: 0.85;
+  opacity: 0.88;
 }
 
-/* Main container */
+/* CONTAINER */
 .container {
   max-width: 900px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 40px 20px 80px;
+  flex-grow: 1;
 }
 
-/* Sections */
+/* SECTION TITLES */
 h2 {
-  font-size: 2rem;
-  margin-bottom: 24px;
-  color: #5a4b41;
+  font-size: 2.5rem;
+  margin-bottom: 32px;
+  color: #6a5b4d;
   font-weight: 600;
+  letter-spacing: 0.03em;
+  text-align: center;
 }
 
+/* ABOUT */
 .about p {
-  font-size: 1.1rem;
-  color: #4b4437;
+  font-size: 1.125rem;
+  color: #5a5047;
+  max-width: 720px;
+  margin: 0 auto 70px;
+  line-height: 1.6;
+  text-align: center;
 }
 
-/* Team grid */
+/* TEAM GRID */
 .team-grid {
   display: flex;
-  gap: 24px;
+  gap: 28px;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .team-card {
-  background: #fff;
-  flex: 1 1 45%;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(101, 89, 73, 0.15);
-  transition: box-shadow 0.3s ease;
+  background-color: #fff;
+  flex: 1 1 320px;
+  padding: 30px 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(129, 106, 83, 0.18);
+  transition: box-shadow 0.3s ease, transform 0.25s ease;
+  text-align: center;
+  cursor: default;
 }
 
 .team-card:hover {
-  box-shadow: 0 8px 20px rgba(101, 89, 73, 0.25);
+  box-shadow: 0 14px 38px rgba(129, 106, 83, 0.33);
+  transform: translateY(-5px);
 }
 
 .team-card h3 {
   margin-top: 0;
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   font-weight: 700;
-  color: #5a4b41;
-  font-size: 1.5rem;
+  font-size: 1.55rem;
+  color: #6a5b4d;
 }
 
 .team-card p {
   margin: 0;
-  color: #7a6b5a;
+  color: #8a7d72;
   font-weight: 500;
+  font-size: 1.05rem;
 }
 
-/* Report download */
+/* REPORT */
 .report {
   text-align: center;
-  margin-top: 60px;
+  margin-top: 80px;
+  margin-bottom: 100px;
 }
 
 .btn-download {
   display: inline-block;
-  background-color: #6b584c;
-  color: #f9f7f2;
-  font-weight: 600;
+  background-color: #837060;
+  color: #faf8f5;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding: 16px 42px;
+  border-radius: 48px;
   text-decoration: none;
-  padding: 14px 28px;
-  border-radius: 30px;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 12px rgba(107, 88, 76, 0.4);
-  transition: background-color 0.3s ease;
+  box-shadow: 0 6px 20px rgba(131, 112, 96, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
 }
 
-.btn-download:hover {
-  background-color: #564938;
-  box-shadow: 0 6px 16px rgba(86, 73, 56, 0.7);
+.btn-download:hover,
+.btn-download:focus {
+  background-color: #6b584c;
+  box-shadow: 0 10px 28px rgba(107, 88, 76, 0.65);
+  outline: none;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
-  background: #d9cfc3;
+  background: #e3dbd0;
   text-align: center;
-  padding: 20px 10px;
-  color: #5a4b41;
-  font-size: 0.9rem;
+  padding: 25px 15px;
+  color: #6a5b4d;
+  font-size: 0.95rem;
   font-weight: 500;
+  user-select: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 720px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  .hero p {
+    font-size: 1.15rem;
+  }
+  .team-card {
+    flex: 1 1 100%;
+  }
+  .container {
+    padding: 30px 15px 60px;
+  }
 }
