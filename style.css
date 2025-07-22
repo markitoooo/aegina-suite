@@ -1,19 +1,35 @@
-/* Reset & base */
-* {
+/* ------------------------------ */
+/* Reset and base styles */
+/* ------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: #fff;
   color: #111;
   line-height: 1.6;
-  overflow-x: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  user-select: none;
 }
 
-/* Header */
+/* ------------------------------ */
+/* Site Header and Navigation */
+/* ------------------------------ */
+
 .site-header {
   position: fixed;
   top: 0;
@@ -21,241 +37,244 @@ body {
   width: 100%;
   height: 80px;
   display: flex;
+  justify-content: center; /* center nav bar horizontally */
   align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  z-index: 2000;
+  padding: 0 1.5rem;
+  z-index: 9999;
+  background: rgba(255 255 255 / 0.85);
   backdrop-filter: saturate(180%) blur(20px);
-  background: rgba(255 255 255 / 0.35);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* Logo */
-.logo {
-  position: fixed;
-  left: 20px;
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #0055ff;
-  font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  user-select: none;
-  letter-spacing: 0.05em;
-  cursor: default;
-  z-index: 2100;
-  text-transform: uppercase;
-}
-
-/* Navigation */
+/* Liquid Glass Navigation Bar */
 .glass-nav {
   display: flex;
-  gap: 2.5rem;
-  backdrop-filter: saturate(180%) blur(20px);
-  background: rgba(255 255 255 / 0.2);
-  padding: 10px 30px;
-  border-radius: 24px;
-  box-shadow:
-    0 4px 6px rgba(0, 85, 255, 0.1),
-    inset 0 0 20px rgba(0, 85, 255, 0.15);
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: #0030cc;
-  cursor: default;
-  user-select: none;
-  transition: box-shadow 0.3s ease, color 0.3s ease;
-}
-
-.glass-nav a {
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  padding: 5px 0;
-  transition: color 0.3s ease;
-  border-radius: 12px;
-}
-
-/* Hover effect on nav items */
-.glass-nav a:hover {
-  color: #007bff;
-  box-shadow:
-    0 0 10px #007bff,
-    0 0 5px #007bff inset;
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
-  border-radius: 14px;
-}
-
-/* Main content spacing */
-main {
-  margin-top: 100px;
-  padding: 0 20px 80px;
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Hero Section */
-.hero-section {
-  position: relative;
-  height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  margin-bottom: 80px;
-}
-
-.hero-canvas {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.hero-content {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-  color: #0030cc;
-  user-select: none;
-}
-
-.hero-title {
-  font-size: 3.5rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.25em;
-  text-shadow: 0 0 10px rgba(0, 120, 255, 0.3);
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  font-weight: 500;
-  color: #0055ffcc;
-  letter-spacing: 0.06em;
-  user-select: none;
-}
-
-/* Sections */
-.section {
-  margin-bottom: 80px;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.section.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Team Section */
-.team-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 40px;
-  color: #0044dd;
-  text-align: center;
-}
-
-.team-cards {
-  display: flex;
-  justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-}
-
-.team-card {
-  background: rgba(0, 85, 255, 0.1);
-  border-radius: 20px;
-  padding: 30px 40px;
-  min-width: 220px;
-  max-width: 320px;
-  box-shadow: 0 6px 15px rgba(0, 85, 255, 0.2);
-  text-align: center;
-  transition: transform 0.3s ease;
-  cursor: default;
-}
-
-.team-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0, 85, 255, 0.35);
-}
-
-.team-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  color: #0030cc;
+  gap: 3rem;
+  background: rgba(255 255 255 / 0.4);
+  backdrop-filter: saturate(180%) blur(25px);
+  -webkit-backdrop-filter: saturate(180%) blur(25px);
+  border-radius: 28px;
+  padding: 12px 48px;
   font-weight: 700;
+  font-size: 1.15rem;
+  color: #0055ff;
+  cursor: pointer;
+  user-select: none;
+  box-shadow:
+    inset 0 1px 0 rgba(255 255 255 / 0.8),
+    0 8px 32px rgba(0 85 255 / 0.15);
+  transition:
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
-.team-card p {
-  font-size: 1.05rem;
+/* Navigation Links */
+.glass-nav a {
+  padding: 8px 0;
+  border-radius: 16px;
+  position: relative;
+  transition:
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* Hover effect: subtle blue border + glow */
+.glass-nav a:hover {
+  color: #003dcc;
+  background-color: rgba(0, 85, 255, 0.15);
+  box-shadow:
+    0 0 8px 3px rgba(0, 85, 255, 0.3);
+  outline: none;
+}
+
+/* Remove default focus outlines but add custom focus ring */
+.glass-nav a:focus-visible {
+  outline: 2px solid #0055ff;
+  outline-offset: 4px;
+  background-color: rgba(0, 85, 255, 0.15);
+  box-shadow:
+    0 0 8px 3px rgba(0, 85, 255, 0.35);
+}
+
+/* ------------------------------ */
+/* Hero Section */
+/* ------------------------------ */
+
+.hero-section {
+  padding: 140px 1.5rem 80px; /* account for fixed header */
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.main-title {
+  font-size: 3.75rem;
+  font-weight: 900;
+  color: #0055ff;
+  margin-bottom: 0.3rem;
+  text-shadow: 0 2px 10px rgba(0, 85, 255, 0.3);
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #444;
+}
+
+/* ------------------------------ */
+/* Team Section */
+/* ------------------------------ */
+
+.team-section {
+  max-width: 960px;
+  margin: 60px auto 40px;
+  padding: 0 1.5rem;
+  text-align: left;
+}
+
+.team-section h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #0030cc;
+}
+
+.team-members {
+  display: flex;
+  gap: 3.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.member {
+  flex: 1 1 280px;
+  background: #f9f9f9;
+  border-radius: 18px;
+  padding: 28px 24px;
+  box-shadow:
+    0 6px 20px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.member:hover {
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.member h3 {
+  font-weight: 700;
+  color: #002299;
+  margin-bottom: 0.4rem;
+  font-size: 1.3rem;
+}
+
+.member p {
+  color: #666;
   font-weight: 500;
-  color: #0055ffcc;
+  font-size: 1.05rem;
 }
 
+/* ------------------------------ */
 /* Earnings Section */
+/* ------------------------------ */
+
 .earnings-section {
+  max-width: 640px;
+  margin: 60px auto 60px;
+  padding: 0 1.5rem;
   text-align: center;
 }
 
 .earnings-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 30px;
-  color: #0044dd;
-}
-
-.download-btn {
-  font-weight: 600;
-  font-size: 1.15rem;
-  color: #007bff;
-  text-decoration: none;
-  border: 2px solid #007bff;
-  padding: 12px 30px;
-  border-radius: 28px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  display: inline-block;
-  user-select: none;
-}
-
-.download-btn:hover {
-  background-color: #007bff;
-  color: #fff;
-}
-
-/* Contact Section */
-.contact-section {
-  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
   color: #0030cc;
 }
 
+.download-button {
+  display: inline-block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  background-color: #0055ff;
+  color: #fff;
+  padding: 14px 40px;
+  border-radius: 32px;
+  box-shadow:
+    0 10px 30px rgba(0, 85, 255, 0.35);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.download-button:hover {
+  background-color: #003dcc;
+  box-shadow:
+    0 14px 40px rgba(0, 61, 204, 0.5);
+}
+
+/* ------------------------------ */
+/* Contact Section */
+/* ------------------------------ */
+
+.contact-section {
+  max-width: 640px;
+  margin: 60px auto 80px;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: #333;
+}
+
 .contact-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  color: #0030cc;
 }
 
 .contact-section p {
+  font-weight: 600;
   font-size: 1.1rem;
-  margin-bottom: 10px;
+  margin-bottom: 0.7rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .team-cards {
+/* ------------------------------ */
+/* Responsive Design */
+/* ------------------------------ */
+
+@media (max-width: 900px) {
+  .team-members {
     flex-direction: column;
-    align-items: center;
+    gap: 2rem;
   }
 
   .glass-nav {
+    padding: 10px 32px;
+    gap: 2rem;
+  }
+
+  .main-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-nav {
     padding: 8px 20px;
-    gap: 1.5rem;
+    gap: 1.2rem;
     font-size: 1rem;
   }
 
-  .hero-title {
+  .main-title {
     font-size: 2.4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
   }
 }
