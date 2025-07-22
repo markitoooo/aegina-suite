@@ -1,319 +1,113 @@
-/* Reset and base styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+:root {
+  --webflow-blue: #0061ff;
+  --glass-bg: rgba(255, 255, 255, 0.25);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-blur: 16px;
 }
 
 body {
   margin: 0;
-  font-family: 'Avenir Next', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: #fff;
+  font-family: 'Avenir Next', sans-serif;
+  background: #ffffff;
   color: #1a1a1a;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
 }
 
-a {
-  color: #0071f3;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
-  outline-offset: 3px;
-}
-
-/* Header logo top-left */
-.header-logo {
-  position: fixed;
-  top: 1rem;
-  left: 1.5rem;
-  z-index: 110;
-}
-
-.header-logo .logo {
-  font-family: 'Circular', sans-serif;
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: #003366;
-  user-select: none;
-}
-
-/* Navbar styles */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  padding: 0 2rem;
-  backdrop-filter: saturate(180%) blur(16px);
-  background: rgba(255 255 255 / 0.7);
-  border-radius: 0 0 24px 24px;
-  box-shadow: 0 6px 20px rgba(0, 113, 243, 0.15);
+.site-header {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  z-index: 100;
-  font-family: 'Circular', sans-serif;
-  font-weight: 600;
-  user-select: none;
+  padding: 1rem 2rem;
+  background: transparent;
 }
 
-/* Nav menu styling */
-.nav-menu {
+.logo {
+  font-family: 'Circular', sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.glass-menu {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 2rem;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
   display: flex;
   gap: 2rem;
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
-/* Nav links */
-.nav-menu a {
-  position: relative;
-  padding: 0.5rem 0.75rem;
-  color: #003366;
-  border-radius: 12px;
-  transition: color 0.3s ease, box-shadow 0.3s ease;
-  outline-offset: 3px;
-}
-
-/* Hover and focus animation */
-.nav-menu a:hover,
-.nav-menu a:focus-visible {
-  color: #0071f3;
-  box-shadow: 0 0 8px 2px rgba(0, 113, 243, 0.6);
-  outline: none;
-  transition: box-shadow 0.3s ease, color 0.3s ease;
-  cursor: pointer;
-}
-
-/* No highlight on click, just smooth scroll handled by JS */
-
-/* Container wrapper for consistent padding and max width */
-.content-section {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  scroll-margin-top: 90px;
-}
-
-/* Section headings */
-h1,
-h2,
-h3 {
-  font-family: 'Circular', sans-serif;
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: #003366;
-  user-select: none;
-}
-
-/* Page title */
-h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-/* Remove the little hexagon/blue accent under the title */
-/* Removed h1::after */
-
-/* Section separator (thin blue line) */
-.section-separator {
-  border: none;
-  height: 2px;
-  max-width: 100px;
-  background: #0071f3;
-  margin: 2rem auto 3rem;
-  border-radius: 6px;
-}
-
-/* Team Section Container */
-.team-grid {
-  display: flex;
-  gap: 2.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Individual team member card */
-.team-card {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 113, 243, 0.12);
-  flex: 1 1 320px;
-  max-width: 380px;
-  padding: 1.5rem 2rem;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  outline-offset: 4px;
-  position: relative;
-  user-select: none;
-}
-
-/* Hover and keyboard focus effect on cards */
-.team-card:hover,
-.team-card:focus-visible {
-  box-shadow: 0 24px 50px rgba(0, 113, 243, 0.3);
-  transform: translateY(-6px);
-  outline: none;
-}
-
-/* Team name */
-.team-name {
-  font-size: 1.6rem;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.2rem;
-  color: #004080;
-}
-
-/* Team role */
-.team-role {
-  font-weight: 500;
-  font-style: italic;
-  color: #0071f3;
-  margin-bottom: 1rem;
-}
-
-/* Bio (hidden by default, toggled with JS) */
-.team-bio {
-  font-size: 0.95rem;
-  line-height: 1.4;
-  color: #222;
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.4s ease, opacity 0.4s ease;
-  user-select: text;
-  margin-top: 0.5rem;
-}
-
-/* Expanded bio */
-.team-card[aria-expanded="true"] .team-bio {
-  max-height: 250px;
-  opacity: 1;
-  margin-top: 1rem;
-}
-
-/* Hero Section */
-.hero-section {
-  height: 70vh;
-  min-height: 400px;
-  background: linear-gradient(180deg, #003366cc 0%, #0071f3cc 90%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Hero Canvas for Three.js/GSAP animation */
-#hero-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Hero Content (text and button) */
-.hero-content {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  padding: 1rem 2rem;
-}
-
-.hero-title {
-  font-family: 'Circular', sans-serif;
-  font-weight: 800;
-  font-size: 3.4rem;
-  margin-bottom: 0.5rem;
-  user-select: none;
-}
-
-.hero-subtitle {
-  font-family: 'Avenir Next', sans-serif;
-  font-weight: 500;
-  font-size: 1.3rem;
-  margin-bottom: 2rem;
-  user-select: none;
-}
-
-.btn-primary {
-  background-color: #0071f3;
-  color: #fff;
-  padding: 0.85rem 2rem;
-  font-weight: 700;
-  border-radius: 40px;
-  border: none;
-  font-family: 'Avenir Next', sans-serif;
-  cursor: pointer;
-  box-shadow: 0 8px 20px rgba(0, 113, 243, 0.5);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  user-select: none;
-  display: inline-block;
+.menu li a {
   text-decoration: none;
+  color: var(--webflow-blue);
+  padding: 0.3rem 0.6rem;
+  border-radius: 1rem;
+  transition: all 0.3s ease;
+  font-family: 'Circular', sans-serif;
 }
 
-.btn-primary:hover,
-.btn-primary:focus-visible {
-  background-color: #004ba0;
-  box-shadow: 0 10px 28px rgba(0, 113, 243, 0.75);
-  outline: none;
+.menu li a:hover {
+  box-shadow: 0 0 10px var(--webflow-blue);
+  border: 1px solid var(--webflow-blue);
 }
 
-/* Earnings report section */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--webflow-blue);
+  text-shadow: 0 1px 2px rgba(0, 97, 255, 0.2);
+}
+
+.highlight {
+  background: none;
+  color: var(--webflow-blue);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  font-family: 'Avenir Next', sans-serif;
+}
+
+.content-section {
+  padding: 2rem 2rem;
+}
+
+.team-section .team-member {
+  margin-bottom: 1rem;
+}
+
 .report-section {
   text-align: center;
 }
 
-/* Report download button */
-.report-download {
-  font-weight: 600;
-  font-size: 1.1rem;
-  padding: 1rem 2.5rem;
-  border-radius: 36px;
-  background-color: #004080;
-  color: #fff;
-  box-shadow: 0 6px 18px rgba(0, 64, 128, 0.5);
-  transition: background-color 0.3s ease;
-  user-select: none;
+.report-button {
+  background-color: var(--webflow-blue);
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.report-download:hover,
-.report-download:focus-visible {
-  background-color: #0066cc;
-  outline: none;
+.report-button:hover {
+  background-color: #004fcc;
 }
 
-/* Accessibility: Focus outlines for keyboard users */
-a:focus-visible,
-button:focus-visible,
-.team-card:focus-visible {
-  outline: 3px solid #0071f3;
-  outline-offset: 3px;
-}
-
-/* Responsive */
-@media (max-width: 600px) {
-  .team-grid {
-    flex-direction: column;
-  }
-  .navbar {
-    padding: 0 1rem;
-  }
+.site-footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #555;
 }
