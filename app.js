@@ -1,4 +1,12 @@
-// Smooth scroll on nav click
+// Custom Cursor
+const cursor = document.querySelector('.custom-cursor');
+
+document.addEventListener('mousemove', e => {
+  cursor.style.top = e.clientY + 'px';
+  cursor.style.left = e.clientX + 'px';
+});
+
+// Smooth Scroll on Menu Click
 document.querySelectorAll('.menu-link').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
@@ -10,22 +18,19 @@ document.querySelectorAll('.menu-link').forEach(link => {
   });
 });
 
-// Toggle team member info expansion
+// Team Card toggle with keyboard accessibility
 const teamCards = document.querySelectorAll('.team-card');
 teamCards.forEach(card => {
   card.addEventListener('click', () => {
     const expanded = card.getAttribute('aria-expanded') === 'true';
     teamCards.forEach(c => {
       c.setAttribute('aria-expanded', 'false');
-      c.querySelector('.team-info').hidden = true;
     });
     if (!expanded) {
       card.setAttribute('aria-expanded', 'true');
-      card.querySelector('.team-info').hidden = false;
     }
   });
 
-  // Keyboard accessibility (Enter and Space)
   card.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
