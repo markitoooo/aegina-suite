@@ -1,32 +1,25 @@
-// Smooth Scroll on Menu Click
+// Smooth scroll for menu links
 document.querySelectorAll('.menu-link').forEach(link => {
   link.addEventListener('click', e => {
     e.preventDefault();
-    const targetId = link.getAttribute('href').substring(1);
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: 'smooth'
+      });
     }
   });
 });
 
-// Team Card toggle with keyboard accessibility
-const teamCards = document.querySelectorAll('.team-card');
-teamCards.forEach(card => {
+// Toggle team info expand
+document.querySelectorAll('.team-card').forEach(card => {
   card.addEventListener('click', () => {
-    const expanded = card.getAttribute('aria-expanded') === 'true';
-    teamCards.forEach(c => {
-      c.setAttribute('aria-expanded', 'false');
-    });
-    if (!expanded) {
-      card.setAttribute('aria-expanded', 'true');
-    }
-  });
-
-  card.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      card.click();
-    }
+    card.classList.toggle('expanded');
+    const info = card.querySelector('.team-info');
+    if (info) info.hidden = !info.hidden;
   });
 });
+
+// Remove laggy cursors
+document.body.style.cursor = 'default';
