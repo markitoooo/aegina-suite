@@ -1,280 +1,193 @@
-/* ------------------------------ */
-/* Reset and base styles */
-/* ------------------------------ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  font-size: 16px;
+    scroll-behavior: smooth;
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  background-color: #fff;
-  color: #111;
-  line-height: 1.6;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  user-select: none;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: white;
+    color: #333;
+    line-height: 1.6;
 }
 
-/* ------------------------------ */
-/* Site Header and Navigation */
-/* ------------------------------ */
-
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  display: flex;
-  justify-content: center; /* center nav bar horizontally */
-  align-items: center;
-  padding: 0 1.5rem;
-  z-index: 9999;
-  background: rgba(255 255 255 / 0.85);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+/* Navigation Bar */
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
 }
 
-/* Liquid Glass Navigation Bar */
-.glass-nav {
-  display: flex;
-  gap: 3rem;
-  background: rgba(255 255 255 / 0.4);
-  backdrop-filter: saturate(180%) blur(25px);
-  -webkit-backdrop-filter: saturate(180%) blur(25px);
-  border-radius: 28px;
-  padding: 12px 48px;
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: #0055ff;
-  cursor: pointer;
-  user-select: none;
-  box-shadow:
-    inset 0 1px 0 rgba(255 255 255 / 0.8),
-    0 8px 32px rgba(0 85 255 / 0.15);
-  transition:
-    color 0.25s ease,
-    box-shadow 0.25s ease,
-    background-color 0.25s ease;
+nav:hover {
+    box-shadow: 0 0 15px rgba(20, 110, 245, 0.5);
 }
 
-/* Navigation Links */
-.glass-nav a {
-  padding: 8px 0;
-  border-radius: 16px;
-  position: relative;
-  transition:
-    color 0.25s ease,
-    box-shadow 0.25s ease,
-    background-color 0.25s ease;
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 15px 0;
 }
 
-/* Hover effect: subtle blue border + glow */
-.glass-nav a:hover {
-  color: #003dcc;
-  background-color: rgba(0, 85, 255, 0.15);
-  box-shadow:
-    0 0 8px 3px rgba(0, 85, 255, 0.3);
-  outline: none;
+nav ul li {
+    margin: 0 20px;
 }
 
-/* Remove default focus outlines but add custom focus ring */
-.glass-nav a:focus-visible {
-  outline: 2px solid #0055ff;
-  outline-offset: 4px;
-  background-color: rgba(0, 85, 255, 0.15);
-  box-shadow:
-    0 0 8px 3px rgba(0, 85, 255, 0.35);
+nav ul li a {
+    color: #146EF5;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-/* ------------------------------ */
-/* Hero Section */
-/* ------------------------------ */
-
-.hero-section {
-  padding: 140px 1.5rem 80px; /* account for fixed header */
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+nav ul li a:hover {
+    color: #0d47a1;
 }
 
-.main-title {
-  font-size: 3.75rem;
-  font-weight: 900;
-  color: #0055ff;
-  margin-bottom: 0.3rem;
-  text-shadow: 0 2px 10px rgba(0, 85, 255, 0.3);
-  line-height: 1.1;
+/* Main Content */
+main {
+    padding-top: 80px; /* Adjust for fixed nav height */
 }
 
-.subtitle {
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: #444;
+/* Sections */
+.section {
+    padding: 50px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
-/* ------------------------------ */
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header Section */
+#header h1 {
+    color: #146EF5;
+    font-size: 48px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
+#header p {
+    font-size: 24px;
+    color: #555;
+}
+
 /* Team Section */
-/* ------------------------------ */
-
-.team-section {
-  max-width: 960px;
-  margin: 60px auto 40px;
-  padding: 0 1.5rem;
-  text-align: left;
+#team .team {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 20px;
 }
 
-.team-section h2 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  color: #0030cc;
+#team .team-member {
+    text-align: left;
+    width: 45%;
 }
 
-.team-members {
-  display: flex;
-  gap: 3.5rem;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+#team h3 {
+    font-size: 24px;
+    color: #146EF5;
 }
 
-.member {
-  flex: 1 1 280px;
-  background: #f9f9f9;
-  border-radius: 18px;
-  padding: 28px 24px;
-  box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.3s ease;
+#team p {
+    font-size: 18px;
+    color: #666;
 }
 
-.member:hover {
-  box-shadow:
-    0 12px 40px rgba(0, 0, 0, 0.12);
+/* Annual Report Section */
+#annual-report a {
+    color: #146EF5;
+    text-decoration: none;
+    font-size: 18px;
+    border: 2px solid #146EF5;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.member h3 {
-  font-weight: 700;
-  color: #002299;
-  margin-bottom: 0.4rem;
-  font-size: 1.3rem;
+#annual-report a:hover {
+    background-color: #146EF5;
+    color: white;
 }
 
-.member p {
-  color: #666;
-  font-weight: 500;
-  font-size: 1.05rem;
-}
-
-/* ------------------------------ */
-/* Earnings Section */
-/* ------------------------------ */
-
-.earnings-section {
-  max-width: 640px;
-  margin: 60px auto 60px;
-  padding: 0 1.5rem;
-  text-align: center;
-}
-
-.earnings-section h2 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
-  color: #0030cc;
-}
-
-.download-button {
-  display: inline-block;
-  font-weight: 700;
-  font-size: 1.1rem;
-  background-color: #0055ff;
-  color: #fff;
-  padding: 14px 40px;
-  border-radius: 32px;
-  box-shadow:
-    0 10px 30px rgba(0, 85, 255, 0.35);
-  transition:
-    background-color 0.3s ease,
-    box-shadow 0.3s ease;
-  user-select: none;
-}
-
-.download-button:hover {
-  background-color: #003dcc;
-  box-shadow:
-    0 14px 40px rgba(0, 61, 204, 0.5);
-}
-
-/* ------------------------------ */
-/* Contact Section */
-/* ------------------------------ */
-
-.contact-section {
-  max-width: 640px;
-  margin: 60px auto 80px;
-  padding: 0 1.5rem;
-  text-align: center;
-  color: #333;
-}
-
-.contact-section h2 {
-  font-size: 2.25rem;
-  font-weight: 800;
-  margin-bottom: 1.2rem;
-  color: #0030cc;
-}
-
-.contact-section p {
-  font-weight: 600;
-  font-size: 1.1rem;
-  margin-bottom: 0.7rem;
-}
-
-/* ------------------------------ */
 /* Responsive Design */
-/* ------------------------------ */
+@media (max-width: 768px) {
+    nav {
+        width: 90%;
+        top: 10px;
+    }
 
-@media (max-width: 900px) {
-  .team-members {
-    flex-direction: column;
-    gap: 2rem;
-  }
+    nav ul {
+        flex-direction: row;
+        padding: 10px 0;
+    }
 
-  .glass-nav {
-    padding: 10px 32px;
-    gap: 2rem;
-  }
+    nav ul li {
+        margin: 0 10px;
+    }
 
-  .main-title {
-    font-size: 3rem;
-  }
+    #team .team {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #team .team-member {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    #header h1 {
+        font-size: 36px;
+    }
+
+    #header p {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 480px) {
-  .glass-nav {
-    padding: 8px 20px;
-    gap: 1.2rem;
-    font-size: 1rem;
-  }
+    nav ul li a {
+        font-size: 16px;
+    }
 
-  .main-title {
-    font-size: 2.4rem;
-  }
+    #header h1 {
+        font-size: 28px;
+    }
 
-  .subtitle {
-    font-size: 1rem;
-  }
+    #header p {
+        font-size: 18px;
+    }
+
+    #team h3 {
+        font-size: 20px;
+    }
+
+    #team p {
+        font-size: 16px;
+    }
+
+    #annual-report a {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
 }
