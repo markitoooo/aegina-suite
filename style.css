@@ -1,1 +1,197 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111827;
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #3b82f6; /* Webflow blue */
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.75rem;
+  color: #fff;
+  letter-spacing: 1.5px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links li a {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #93c5fd; /* lighter blue */
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+  color: #fff;
+  padding: 6rem 0 4rem 0;
+  text-align: center;
+  user-select: none;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  max-width: 650px;
+  margin: 0 auto;
+  opacity: 0.85;
+}
+
+/* Main Content */
+.main-content {
+  padding: 4rem 0;
+}
+
+/* Sections */
+.section {
+  margin-bottom: 4rem;
+}
+
+/* About Us */
+.about h2,
+.team h2,
+.report h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111827;
+}
+
+.about p {
+  max-width: 750px;
+  font-size: 1.125rem;
+  color: #374151; /* dark gray */
+}
+
+/* Team */
+.team-cards {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: #f9fafb; /* light gray */
+  border-radius: 10px;
+  padding: 2rem;
+  width: 280px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(59,130,246,0.3);
+}
+
+.avatar {
+  background: #3b82f6;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: 0 auto 1rem auto;
+  border-radius: 50%;
+  user-select: none;
+}
+
+/* Buttons */
+.btn-download {
+  display: inline-block;
+  background: #3b82f6;
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 6px 15px rgba(59,130,246,0.3);
+  transition: background 0.3s ease;
+  user-select: none;
+}
+
+.btn-download:hover {
+  background: #2563eb; /* darker blue */
+  box-shadow: 0 8px 20px rgba(37,99,235,0.5);
+}
+
+/* Footer */
+.footer {
+  background: #111827;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+/* Animation Canvas */
+#animation-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none; /* so user can click through */
+  z-index: -1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .team-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links {
+    gap: 1.2rem;
+  }
+}
 
