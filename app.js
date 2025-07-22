@@ -51,3 +51,8 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(section => {
     observer.observe(section);
 });
+
+window.addEventListener('scroll', () => {
+    const scrollPosition = window.scrollY;
+    document.body.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+});
