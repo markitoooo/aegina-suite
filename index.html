@@ -3,72 +3,73 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aegina Suites IKE</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Property Management in the Saronic Gulf</title>
+
+  <!-- Apple-style fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600&family=Inter:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 <body>
-  <nav class="navbar frosted-glass">
-    <ul class="menu">
-      <li><a href="#home" class="menu-link">Home</a></li>
-      <li><a href="#about" class="menu-link">About Us</a></li>
-      <li><a href="#team" class="menu-link">Our Team</a></li>
-      <li><a href="#report" class="menu-link">Report</a></li>
-    </ul>
-  </nav>
-
-  <header id="home" class="hero-section">
-    <h1 class="main-title blue-glow">
-      Property Management in the <span class="highlighted-blue">Saronic Gulf</span>
-    </h1>
-    <p class="subtitle">Currently delivering boutique luxury experiences in Aegina</p>
+  <header class="top-bar liquid-glass">
+    <nav class="nav-container">
+      <h1 class="site-title">
+        Property Management in the
+        <span class="highlight-circle">Saronic Gulf</span>
+      </h1>
+      <ul class="nav-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#team">Team</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <section id="about" class="section about-section frosted-glass">
-    <h2 class="section-title">About Us</h2>
-    <p>
-      Aegina Suites IKE is a premium property management company specializing in boutique luxury experiences within Aegina. Our projects are designed to stand out in both form and function.
-    </p>
-    <p>
-      We believe that true luxury lies in thoughtful details, seamless service, and exclusive locality — and we bring all three together in the heart of the Saronic Gulf.
-    </p>
-  </section>
+  <main>
+    <section id="about" class="section liquid-glass about-section">
+      <h2>About Us</h2>
+      <p>
+        We specialize in premium property management services across the stunning
+        Saronic Gulf region, ensuring a seamless experience for homeowners and renters.
+      </p>
+    </section>
 
-  <section id="team" class="section team-section frosted-glass">
-    <h2 class="section-title">Our Team</h2>
-    <div class="team-cards">
-      <div class="team-card" tabindex="0" role="button" aria-expanded="false" aria-controls="panagiotis-info" data-member="panagiotis">
-        <h3 class="team-name">PANAGIOTIS MARKIDIS</h3>
-        <p class="team-role">CEO &amp; Co-founder</p>
-        <div class="team-info" id="panagiotis-info" hidden>
-          <p>Panagiotis has 15 years of experience in property management and leads the company with strategic vision.</p>
+    <section id="team" class="section liquid-glass team-section">
+      <h2>Our Team</h2>
+      <div class="team-grid">
+        <div class="team-member">
+          <img src="images/anna.jpg" alt="Anna Kapsali" />
+          <h3>Anna Kapsali</h3>
+          <p>Operations Manager</p>
+        </div>
+        <div class="team-member">
+          <img src="images/dimitris.jpg" alt="Dimitris Nikolaidis" />
+          <h3>Dimitris Nikolaidis</h3>
+          <p>Property Consultant</p>
+        </div>
+        <div class="team-member">
+          <img src="images/maria.jpg" alt="Maria Papadopoulou" />
+          <h3>Maria Papadopoulou</h3>
+          <p>Customer Relations</p>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="team-card" tabindex="0" role="button" aria-expanded="false" aria-controls="christina-info" data-member="christina">
-        <h3 class="team-name">CHRISTINA ECONOMOPOULOU</h3>
-        <p class="team-role">COO &amp; Co-founder</p>
-        <div class="team-info" id="christina-info" hidden>
-          <p>Christina oversees operations and ensures excellence in service delivery across all properties.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="report" class="section report-section">
-    <h2 class="section-title">Annual Earnings Report</h2>
-    <a href="annual-earnings-report.pdf" download class="download-btn" aria-label="Download Annual Earnings Report">Download Report</a>
-    <p class="report-description">
-      Our most recent annual report reflects record growth in boutique hospitality investments across Aegina.
-    </p>
-  </section>
-
-  <footer class="footer">
-    <p>© 2025 Aegina Suites IKE. All rights reserved.</p>
+  <footer class="footer liquid-glass">
+    <p>&copy; 2025 Saronic Gulf Property Management</p>
   </footer>
 
+  <!-- App JS -->
   <script src="app.js"></script>
 </body>
 </html>
