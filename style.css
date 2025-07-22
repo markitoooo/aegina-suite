@@ -1,93 +1,270 @@
-body {
-  margin: 0;
-  font-family: 'Avenir Next', sans-serif;
-  background: #f5f7fa;
-  color: #222;
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Circular&family=Avenir+Next&display=swap');
+
+:root {
+  --webflow-blue: #007aff;
+  --background-color: #fff;
+  --text-color: #222;
+  --shadow-color: rgba(0, 122, 255, 0.3);
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  --glass-blur: 15px;
 }
 
+/* Global Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Avenir Next', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Navbar Circular Liquid Glass Menu */
 .navbar {
+  width: 100%;
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(12px);
-  border-radius: 50px;
-  margin: 20px auto;
-  padding: 10px 30px;
-  width: fit-content;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
 }
 
-.menu {
+.menu.circular-menu {
   display: flex;
-  list-style: none;
-  gap: 30px;
-  padding: 0;
-  margin: 0;
-}
-
-.menu li a {
-  text-decoration: none;
-  font-family: 'Circular Std', sans-serif;
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: 9999px;
+  padding: 0.5rem 2.5rem;
+  gap: 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+  font-family: 'Circular', sans-serif;
   font-weight: 600;
-  color: #222;
+  font-size: 1.1rem;
 }
 
-.hero {
+.menu.circular-menu li {
+  list-style: none;
+}
+
+.menu.circular-menu a {
+  color: var(--webflow-blue);
+  text-decoration: none;
+  padding: 0.4rem 0.6rem;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  position: relative;
+}
+
+.menu.circular-menu a:hover,
+.menu.circular-menu a:focus {
+  background-color: rgba(0, 122, 255, 0.15);
+  box-shadow: 0 0 8px var(--webflow-blue);
+  transform: scale(1.1);
+  outline: none;
+}
+
+/* Hero Section */
+.hero-section {
   text-align: center;
-  margin-top: 40px;
-  padding: 40px 20px 20px;
+  padding: 6rem 1rem 3rem;
+  font-family: 'Circular', sans-serif;
 }
 
-.title {
-  font-family: 'Circular Std', sans-serif;
-  font-size: 2.5rem;
-  color: #007aff;
-  text-shadow: 0 1px 4px rgba(0, 122, 255, 0.3);
+.main-title {
+  font-size: 3.6rem;
+  font-weight: 900;
+  color: var(--webflow-blue);
+  text-shadow: 0 2px 3px rgba(0, 122, 255, 0.25);
+  max-width: 800px;
+  margin: 0 auto 0.3rem;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.highlighted-circle {
+  display: inline-block;
+  background: var(--webflow-blue);
+  color: white;
+  border-radius: 9999px;
+  padding: 0.2rem 1.2rem;
+  margin-left: 1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 8px rgba(0, 122, 255, 0.4);
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.highlighted-circle:hover {
+  box-shadow: 0 6px 14px rgba(0, 122, 255, 0.6);
 }
 
 .subtitle {
-  font-size: 1.1rem;
-  color: #555;
-  margin-top: 10px;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: #444;
+  margin-top: 0.2rem;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.glass-section {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  margin: 40px auto;
-  padding: 40px;
-  border-radius: 16px;
+/* Sections */
+.section {
   max-width: 900px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin: 3rem auto 5rem;
+  padding: 2rem 2rem 3rem;
+  border-radius: 1.5rem;
+  background: #f9f9f9;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  font-family: 'Avenir Next', sans-serif;
 }
 
-.team-grid {
+/* Frosted glass effect on about, team, report */
+.frosted-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-radius: 1.5rem;
+  padding: 2rem 3rem;
+}
+
+/* Section titles */
+.section-title {
+  font-family: 'Circular', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--webflow-blue);
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+/* About Us */
+.about-section p {
+  font-size: 1.1rem;
+  line-height: 1.55;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Team Section */
+.team-cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 2rem;
   justify-content: center;
-  margin-top: 30px;
 }
 
-.team-member {
+.team-card {
   background: white;
-  border-radius: 12px;
-  padding: 20px;
-  width: 250px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  text-align: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  border-radius: 1.2rem;
+  width: 280px;
+  padding: 1.5rem 2rem;
+  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline-offset: 3px;
 }
 
-.team-member:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+.team-card:hover,
+.team-card:focus {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+  outline: none;
 }
 
-footer {
-  text-align: center;
-  padding: 20px;
+.team-name {
+  font-family: 'Circular', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--webflow-blue);
+  margin-bottom: 0.4rem;
+  user-select: none;
+}
+
+.team-role {
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.team-info {
+  font-family: 'Avenir Next', sans-serif;
   font-size: 0.9rem;
-  color: #777;
+  color: #666;
+  margin-top: 0.4rem;
+  line-height: 1.45;
+  user-select: text;
+}
+
+/* Report Section */
+.report-section p,
+.report-section a {
+  font-family: 'Avenir Next', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.download-btn {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.7rem 1.8rem;
+  background: var(--webflow-blue);
+  color: white;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+.download-btn:hover,
+.download-btn:focus {
+  background-color: #005bb5;
+  outline: none;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-family: 'Avenir Next', sans-serif;
+  color: #888;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+  user-select: none;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+  .team-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+  .main-title {
+    font-size: 2.4rem;
+  }
+  .menu.circular-menu {
+    gap: 1rem;
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+  }
 }
