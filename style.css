@@ -61,6 +61,23 @@ nav ul li a:hover {
     color: #0d47a1;
 }
 
+/* Hamburger Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background: #146EF5;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+}
+
 /* Main Content */
 main {
     padding-top: 100px;
@@ -155,21 +172,50 @@ main {
 /* Responsive Design */
 @media (max-width: 768px) {
     nav {
-        width: 70%; /* Reduced from 90% to 70% */
-        top: 10px;
-        padding: 8px 15px; /* Reduced padding */
+        width: 50px; /* Collapsed width for hamburger */
+        padding: 10px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu.active {
+        display: flex;
     }
 
     nav ul li {
-        margin: 0 15px;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
     }
 
     nav ul li a {
         font-size: 16px;
+        display: block;
     }
 
     main {
-        padding-top: 70px; /* Adjusted to prevent overlap */
+        padding-top: 80px; /* Adjusted for hamburger menu */
     }
 
     .section {
@@ -195,26 +241,8 @@ main {
 }
 
 @media (max-width: 480px) {
-    nav {
-        width: 80%; /* Further reduced for smaller screens */
-        padding: 6px 10px; /* Minimal padding */
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    nav ul li {
-        margin: 8px 0;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-    }
-
     main {
-        padding-top: 60px; /* Further adjusted for small screens */
+        padding-top: 70px; /* Further adjusted for small screens */
     }
 
     #header h1 {
