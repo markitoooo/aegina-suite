@@ -1,239 +1,209 @@
-/* Reset and base styles */
-*,
-*::before,
-*::after {
+/* Reset & Base Styles */
+* {
   box-sizing: border-box;
-}
-
-body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: #fff;
-  color: #1a1a1a;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
-}
-
-a {
-  color: #0071f3;
-  text-decoration: none;
-}
-
-a:hover,
-a:focus {
-  text-decoration: underline;
-  outline-offset: 3px;
-}
-
-/* Container wrapper for consistent padding and max width */
-.content-section {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  scroll-margin-top: 80px;
-}
-
-/* Section headings */
-h1,
-h2,
-h3 {
-  font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  color: #003366;
-  user-select: none;
-}
-
-/* Page title */
-h1 {
-  font-size: 3.2rem;
-  line-height: 1.1;
-  text-align: center;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-/* Add subtle shadow and blue accent for title */
-h1::after {
-  content: '';
-  display: block;
-  width: 72px;
-  height: 4px;
-  background: #0071f3;
-  margin: 1rem auto 0;
-  border-radius: 4px;
-}
-
-/* Section separator (thin blue line) */
-.section-separator {
-  border: none;
-  height: 2px;
-  max-width: 100px;
-  background: #0071f3;
-  margin: 2rem auto 3rem;
-  border-radius: 6px;
-}
-
-/* Team Section Container with frosted glass effect */
-.team-container {
-  background: rgba(0, 113, 243, 0.1); /* light transparent blue */
-  backdrop-filter: saturate(180%) blur(12px);
-  border-radius: 28px;
-  box-shadow: 0 14px 50px rgba(0, 113, 243, 0.15);
-  padding: 2rem 2.5rem;
-  max-width: 920px;
-  margin: 2rem auto 4rem;
-}
-
-/* Layout for the team cards */
-.team-grid {
-  display: flex;
-  gap: 2.2rem;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Individual team member card */
-.team-card {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 12px 30px rgba(0, 113, 243, 0.12);
-  flex: 1 1 320px;
-  max-width: 380px;
-  padding: 1.5rem 2rem;
-  cursor: pointer;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  outline-offset: 4px;
-  position: relative;
-}
-
-/* Hover and keyboard focus effect on cards */
-.team-card:hover,
-.team-card:focus-visible {
-  box-shadow: 0 20px 70px rgba(0, 113, 243, 0.35);
-  outline: 2px solid #0071f3;
-  transform: translateY(-5px);
-}
-
-/* Team member name */
-.team-name {
-  font-weight: 700;
-  font-size: 1.25rem;
-  color: #003366;
-  margin-bottom: 0.3rem;
-  user-select: none;
-}
-
-/* Role under the name */
-.team-role {
-  font-weight: 500;
-  font-size: 1rem;
-  color: #0071f3;
-  margin-bottom: 1rem;
-  user-select: none;
-}
-
-/* Hidden bio text, toggled visible on card click or keyboard toggle */
-.team-bio {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #1a1a1a;
-  margin-top: 0.75rem;
-  display: none;
-  user-select: text;
-}
-
-/* When card has aria-expanded true, show bio */
-.team-card[aria-expanded="true"] .team-bio {
-  display: block;
-}
-
-/* Report Section Styling */
-.report-download {
-  display: inline-block;
-  background: #0071f3;
-  color: white;
-  padding: 0.7rem 1.3rem;
-  border-radius: 24px;
-  font-weight: 600;
-  font-size: 1rem;
-  box-shadow: 0 10px 30px rgba(0, 113, 243, 0.3);
-  transition: background-color 0.25s ease;
-  user-select: none;
-  cursor: pointer;
-  border: none;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.report-download:hover,
-.report-download:focus-visible {
-  background-color: #005bb5;
-  outline-offset: 4px;
-}
-
-/* Icon inside report download (optional) */
-.report-download svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-}
-
-/* Responsive typography */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2.4rem;
-  }
-
-  .team-grid {
-    flex-direction: column;
-    gap: 1.6rem;
-  }
-}
-
-/* Optional: Smooth scroll for anchor links */
-html {
+  padding: 0;
   scroll-behavior: smooth;
 }
 
-/* Accessibility focus outline */
-:focus-visible {
-  outline: 2px solid #0071f3;
-  outline-offset: 4px;
+body {
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.6;
+  font-size: 16px;
+  overflow-x: hidden;
 }
 
-/* Navbar styles (if you have one) */
+h1, h2, h3 {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.section {
+  padding: 100px 10%;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.section-title {
+  font-size: 2.2rem;
+  color: #0f1f3f;
+  margin-bottom: 1rem;
+  border-left: 4px solid #3b82f6;
+  padding-left: 12px;
+}
+
+/* Navigation Bar */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem 2rem;
-  backdrop-filter: saturate(180%) blur(12px);
-  background: rgba(255 255 255 / 0.8);
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 113, 243, 0.1);
+  z-index: 999;
   display: flex;
   justify-content: center;
-  z-index: 100;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-/* Navbar links */
-.navbar a {
-  color: #003366;
-  font-weight: 600;
-  margin: 0 1rem;
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding: 1.2rem 2rem;
+}
+
+.menu-link {
+  color: #0f1f3f;
+  font-weight: 500;
   text-decoration: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  position: relative;
+  transition: 0.3s;
 }
 
-.navbar a:hover,
-.navbar a:focus-visible {
-  background-color: rgba(0, 113, 243, 0.15);
-  outline-offset: 3px;
+.menu-link::after {
+  content: '';
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -6px;
+  background: #3b82f6;
+  transition: width 0.3s;
+}
+
+.menu-link:hover::after {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to bottom, #fff, #f4f7fa);
+  padding-top: 100px;
+}
+
+.main-title {
+  font-size: 3.5rem;
+  color: #0f1f3f;
+  margin-bottom: 1rem;
+}
+
+.highlighted-border {
+  border: 2px solid #3b82f6;
+  padding: 0 6px;
+  border-radius: 4px;
+  color: #0f1f3f;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #3b3b3b;
+  margin-top: 0.5rem;
+  font-weight: 400;
+}
+
+/* Team Section */
+.team-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.team-card {
+  padding: 1.5rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.team-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.team-info {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  display: none;
+}
+
+.team-card[aria-expanded="true"] .team-info {
+  display: block;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Download Report */
+.download-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #3b82f6;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #1e40af;
+}
+
+/* Footer */
+.footer {
+  padding: 2rem;
+  text-align: center;
+  background: #f8fafc;
+  color: #555;
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Scroll Animations */
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideFadeIn 0.6s ease forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .menu {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 }
