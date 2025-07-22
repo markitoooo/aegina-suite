@@ -172,4 +172,56 @@ body {
 
 .team-card[aria-expanded="true"] .team-info {
   max-height: 200px; /* enough height for text */
-  opacity: 1
+  opacity: 1;
+}
+
+/* Report Section */
+.report-section {
+  text-align: center;
+}
+
+.download-btn {
+  display: inline-block;
+  background-color: #0056d2;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 36px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgb(0 86 210 / 0.3);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 18px;
+}
+
+.download-btn:hover {
+  background-color: #003a9a;
+  box-shadow: 0 12px 28px rgb(0 58 154 / 0.45);
+  cursor: pointer;
+}
+
+.report-description {
+  font-size: 1.05rem;
+  color: #444;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 24px 20px;
+  font-size: 0.9rem;
+  color: #777;
+  border-top: 1px solid #eee;
+  margin-top: 100px;
+  user-select: none;
+}
+
+/* Accessibility focus styles */
+.menu-link:focus,
+.team-card:focus,
+.download-btn:focus {
+  outline: 3px solid #0056d2;
+  outline-offset: 3px;
+}
