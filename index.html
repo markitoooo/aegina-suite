@@ -1,70 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Aegina Suites IKE</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Aegina Suites IKE</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.min.js"></script>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="logo">Aegina Suites IKE</div>
-    <nav class="glass-nav" aria-label="Primary Navigation">
-      <ul>
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#report">Report</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<header class="site-header">
+  <div class="logo">Aegina Suites IKE</div>
+  <nav class="glass-nav">
+    <a href="#home">Home</a>
+    <a href="#team">Team</a>
+    <a href="#earnings">Earnings</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
 
-  <section id="hero" class="hero">
-    <canvas id="hero-canvas"></canvas>
+<main>
+  <section id="home" class="section hero-section">
+    <canvas id="hero-canvas" class="hero-canvas"></canvas>
     <div class="hero-content">
-      <h1>Property Management in the <span>Saronic Gulf</span></h1>
-      <p>Delivering boutique luxury experiences in Aegina</p>
-      <a href="#about" class="btn">Learn More</a>
+      <h1 class="hero-title">Aegina Suites IKE</h1>
+      <p class="hero-subtitle">Delivering boutique luxury experiences in Aegina</p>
     </div>
   </section>
 
-  <section id="about" class="section glass">
-    <h2>About Us</h2>
-    <p>Aegina Suites IKE specializes in luxury boutique property management on Aegina—thoughtful design, seamless service, local expertise.</p>
-  </section>
-
-  <section id="team" class="section glass">
-    <h2>Our Team</h2>
-    <div class="team-grid">
-      <div class="team-card" tabindex="0" aria-expanded="false">
-        <h3>Panagiotis Markidis</h3>
-        <p>CEO & Co‑Founder</p>
-        <div class="bio">Panagiotis brings 15+ years in luxury property management, ensuring operational excellence and client delight.</div>
+  <section id="team" class="section team-section">
+    <h2>Meet the Team</h2>
+    <div class="team-cards">
+      <div class="team-card">
+        <h3>Panagiotis Markidis</h3>
+        <p>Co-Founder & CEO</p>
       </div>
-      <div class="team-card" tabindex="0" aria-expanded="false">
-        <h3>Christina Economopoulou</h3>
-        <p>COO & Co‑Founder</p>
-        <div class="bio">Christina oversees daily operations, crafting seamless guest experiences from check‑in to check‑out.</div>
+      <div class="team-card">
+        <h3>Christina Economopoulou</h3>
+        <p>Co-Founder & COO</p>
       </div>
     </div>
   </section>
 
-  <section id="report" class="section">
-    <h2>Annual Earnings Report</h2>
-    <a href="AeginaSuite_AnnualReport.pdf" download class="btn">Download Report (PDF)</a>
+  <section id="earnings" class="section earnings-section">
+    <h2>Annual Earnings Report</h2>
+    <a href="AeginaSuite_AnnualReport.pdf" target="_blank" class="download-btn">Download PDF</a>
   </section>
 
-  <section id="contact" class="section glass">
-    <h2>Contact Us</h2>
-    <p>Email: info@aeginasuites.gr<br/>Phone: +30 123 456 7890</p>
+  <section id="contact" class="section contact-section">
+    <h2>Contact Us</h2>
+    <p>Email: info@aeginasuites.gr</p>
+    <p>Phone: +30 210 123 4567</p>
   </section>
+</main>
 
-  <footer class="footer">
-    <p>© 2025 Aegina Suites IKE. All rights reserved.</p>
-  </footer>
-
-  <script src="script.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
