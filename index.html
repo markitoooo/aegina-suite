@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aegina Suites IKE</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <nav class="navbar frosted-glass">
@@ -18,13 +20,12 @@
 
   <header id="home" class="hero-section">
     <h1 class="main-title">
-      Property Management in the
-      <span class="highlighted-text">Saronic Gulf</span>
+      Property Management in the <span class="highlighted-text">Saronic Gulf</span>
     </h1>
     <p class="subtitle">Currently delivering boutique luxury experiences in Aegina</p>
   </header>
 
-  <section id="about" class="section about-section">
+  <section id="about" class="section about-section frosted-glass">
     <h2 class="section-title">About Us</h2>
     <p>
       Aegina Suites IKE is a premium property management company specializing in boutique luxury experiences within Aegina. Our projects are designed to stand out in both form and function.
@@ -34,23 +35,22 @@
     </p>
   </section>
 
-  <section id="team" class="section team-section">
+  <section id="team" class="section team-section frosted-glass">
     <h2 class="section-title">Our Team</h2>
     <div class="team-cards">
-      <div class="team-card" tabindex="0">
-        <div class="team-image"></div>
-        <div class="team-content">
-          <h3 class="team-name">PANAGIOTIS MARKIDIS</h3>
-          <p class="team-role">CEO & Co-founder</p>
-          <p class="team-info">Panagiotis has 15 years of experience in property management and leads the company with strategic vision.</p>
+      <div class="team-card" tabindex="0" role="button" aria-expanded="false" aria-controls="panagiotis-info" data-member="panagiotis">
+        <h3 class="team-name">PANAGIOTIS MARKIDIS</h3>
+        <p class="team-role">CEO & Co-founder</p>
+        <div class="team-info" id="panagiotis-info" hidden>
+          <p>Panagiotis has 15 years of experience in property management and leads the company with strategic vision.</p>
         </div>
       </div>
-      <div class="team-card" tabindex="0">
-        <div class="team-image"></div>
-        <div class="team-content">
-          <h3 class="team-name">CHRISTINA ECONOMOPOULOU</h3>
-          <p class="team-role">COO & Co-founder</p>
-          <p class="team-info">Christina oversees operations and ensures excellence in service delivery across all properties.</p>
+
+      <div class="team-card" tabindex="0" role="button" aria-expanded="false" aria-controls="christina-info" data-member="christina">
+        <h3 class="team-name">CHRISTINA ECONOMOPOULOU</h3>
+        <p class="team-role">COO & Co-founder</p>
+        <div class="team-info" id="christina-info" hidden>
+          <p>Christina oversees operations and ensures excellence in service delivery across all properties.</p>
         </div>
       </div>
     </div>
