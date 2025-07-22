@@ -1,3 +1,12 @@
+// Toggle mobile menu
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -6,19 +15,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             behavior: 'smooth'
         });
         if (window.innerWidth <= 768) {
-            document.querySelector('.nav-menu').classList.remove('active');
-            document.querySelector('.menu-toggle').classList.remove('active');
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
         }
     });
-});
-
-// Toggle mobile menu
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-menuToggle.addEventListener('click', () => {
-    menuToggle.classList.toggle('active');
-    navMenu.classList.toggle('active');
 });
 
 // Fade-in animation on scroll
