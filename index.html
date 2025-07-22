@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aegina Suite IKE</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <nav class="navbar">
@@ -12,31 +13,29 @@
       <div class="logo">Aegina Suite IKE</div>
       <ul class="nav-links">
         <li><a href="#about">About Us</a></li>
-        <li><a href="#team">Team</a></li>
-        <li><a href="#report">Annual Report</a></li>
+        <li><a href="#team">Our Team</a></li>
+        <li><a href="#report">Report</a></li>
       </ul>
     </div>
   </nav>
 
   <header class="hero">
-    <div class="container hero-content">
+    <div class="container">
       <h1>Property Management in the Saronic Gulf</h1>
-      <p>Reliable, Transparent & Tailored Solutions for Your Properties</p>
+      <p>Experience seamless property management with Aegina Suite IKE.</p>
     </div>
   </header>
 
-  <main class="container main-content">
+  <main class="main-content container">
     <section id="about" class="section about">
       <h2>About Us</h2>
       <p>
-        Aegina Suite IKE provides expert property management services across the
-        stunning Saronic Gulf region. We focus on personalized care, trusted
-        partnerships, and exceptional client experiences.
+        Aegina Suite IKE is a premier property management company focused on delivering personalized and trustworthy services in the Saronic Gulf. We specialize in maximizing property value and ensuring tenant satisfaction.
       </p>
     </section>
 
     <section id="team" class="section team">
-      <h2>Meet Our Team</h2>
+      <h2>Our Team</h2>
       <div class="team-cards">
         <div class="card">
           <div class="avatar">PM</div>
@@ -52,16 +51,20 @@
     </section>
 
     <section id="report" class="section report">
-      <a href="annual-earnings-report.pdf" download class="btn-download">
-        Download Annual Earnings Report
-      </a>
+      <h2>Annual Earnings Report</h2>
+      <a href="annual_earnings_report.pdf" download class="btn-download">Download Report</a>
     </section>
   </main>
 
+  <section id="animation-canvas">
+    <canvas id="three-canvas"></canvas>
+  </section>
+
   <footer class="footer">
-    <div class="container">
-      &copy; 2025 Aegina Suite IKE. All rights reserved.
-    </div>
+    &copy; 2025 Aegina Suite IKE — All rights reserved.
   </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r154/three.min.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
