@@ -1,90 +1,112 @@
-// Wait for DOM content to be loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Smooth scroll for nav links
-  const navLinks = document.querySelectorAll('.menu-link');
+// GSAP animations for Hero Title fade & slide in
+gsap.from(".hero-title", {
+  duration: 1.5,
+  y: 50,
+  opacity: 0,
+  ease: "power4.out",
+  delay: 0.5,
+});
+gsap.from(".hero-subtitle", {
+  duration: 1.3,
+  y: 40,
+  opacity: 0,
+  ease: "power3.out",
+  delay: 0.8,
+});
+gsap.from(".btn-primary", {
+  duration: 1.3,
+  y: 30,
+  opacity: 0,
+  ease: "power3.out",
+  delay: 1,
+});
 
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
+// Expand/collapse team bios
+document.querySelectorAll(".team-card.expandable").forEach((card) => {
+  card.addEventListener("click", () => toggleBio(card));
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-
-      if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
+      toggleBio(card);
+    }
   });
+});
 
-  // Team card toggle expansion
-  const teamCards = document.querySelectorAll('.team-card');
+function toggleBio(card) {
+  const expanded = card.getAttribute("aria-expanded") === "true";
+  card.setAttribute("aria-expanded", !expanded);
+}
 
-  teamCards.forEach(card => {
-    card.addEventListener('click', () => {
-      // Toggle aria-expanded for accessibility
-      const expanded = card.getAttribute('aria-expanded') === 'true';
-      card.setAttribute('aria-expanded', String(!expanded));
-    });
+// THREE.JS Hero Background animation
 
-    // Keyboard support for toggle
-    card.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const expanded = card.getAttribute('aria-expanded') === 'true';
-        card.setAttribute('aria-expanded', String(!expanded));
-      }
-    });
+const canvas = document.getElementById("hero-canvas");
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000, 0); // transparent background
+
+const scene = new THREE.Scene();
+
+const camera = new THREE.PerspectiveCamera(
+  50,
+  window.innerWidth / window.innerHeight,
+  0.1,
+  1000
+);
+camera.position.z = 15;
+
+// Create a smooth animated geometry (a sphere with noise)
+
+const geometry = new THREE.IcosahedronGeometry(6, 4);
+const material = new THREE.MeshPhysicalMaterial({
+  color: 0x0071f3,
+  clearcoat: 1,
+  clearcoatRoughness: 0,
+  metalness: 0.7,
+  roughness: 0.3,
+  transparent: true,
+  opacity: 0.6,
+  reflectivity: 1,
+  ior: 1.5,
+});
+
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
+
+const clock = new THREE.Clock();
+
+// Simple noise function to distort vertices over time
+function noise(x, y, z) {
+  return (
+    Math.sin(x * 3 + clock.getElapsedTime() * 2) +
+    Math.sin(y * 4 + clock.getElapsedTime() * 3) +
+    Math.sin(z * 5 + clock.getElapsedTime() * 4)
+  );
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  const time = clock.getElapsedTime();
+
+  // Distort vertices
+  geometry.vertices.forEach((v) => {
+    const n = noise(v.x, v.y, v.z);
+    v.normalize().multiplyScalar(6 + n * 0.3);
   });
+  geometry.verticesNeedUpdate = true;
 
-  // Intersection Observer for fade-in animations on sections
-  const sections = document.querySelectorAll('.section');
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15,
-  };
+  // Rotate sphere slowly
+  sphere.rotation.x = time * 0.05;
+  sphere.rotation.y = time * 0.06;
 
-  const sectionObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // Animate once
-      }
-    });
-  }, observerOptions);
+  renderer.render(scene, camera);
+}
 
-  sections.forEach(section => {
-    sectionObserver.observe(section);
-  });
+animate();
 
-  // Custom cursor pointer effect (optional)
-  // Just example - replace or remove if unwanted
-  /*
-  const cursor = document.createElement('div');
-  cursor.style.position = 'fixed';
-  cursor.style.width = '20px';
-  cursor.style.height = '20px';
-  cursor.style.border = '2px solid #007aff';
-  cursor.style.borderRadius = '50%';
-  cursor.style.pointerEvents = 'none';
-  cursor.style.transition = 'transform 0.15s ease-out';
-  cursor.style.transform = 'translate(-50%, -50%)';
-  cursor.style.zIndex = '9999';
-  document.body.appendChild(cursor);
-
-  window.addEventListener('mousemove', e => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-
-  // Add subtle scale on interactive elements
-  const interactiveEls = document.querySelectorAll('a, button, .team-card');
-  interactiveEls.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
-    });
-    el.addEventListener('mouseleave', () => {
-      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-    });
-  });
-  */
+// Responsive resize
+window.addEventListener("resize", () => {
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
 });
