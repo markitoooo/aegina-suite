@@ -1,63 +1,91 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2e2e2e;
-  background-color: #f7f5f2;
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f1ed;
+  color: #1f1f1f;
+  line-height: 1.6;
 }
 
 header {
-  background-color: #d4c4a8;
-  color: #333;
-  padding: 40px 20px;
+  background-color: #e7e1d7;
+  padding: 80px 20px;
   text-align: center;
 }
 
+.nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2f2f2f;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-text p {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  color: #444;
+}
+
 .container {
+  padding: 40px 20px;
   max-width: 900px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .about, .team, .report {
-  margin-top: 40px;
+  margin-bottom: 60px;
 }
 
-h1, h2, h3 {
-  font-weight: 600;
+h2 {
+  font-size: 28px;
+  margin-bottom: 16px;
 }
 
-.team-members {
+.team-grid {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 20px;
 }
 
-.member {
+.card {
   flex: 1 1 45%;
-  background: #ebe6dc;
-  margin: 10px;
+  background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.download-button {
+.button {
   display: inline-block;
-  background-color: #8c7a6b;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 8px;
+  background-color: #5c4c3c;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 6px;
   text-decoration: none;
   transition: background 0.3s ease;
 }
 
-.download-button:hover {
-  background-color: #6e5c4c;
+.button:hover {
+  background-color: #3f352a;
 }
 
 footer {
-  text-align: center;
+  background-color: #ddd5cc;
   padding: 20px;
-  background-color: #dcd6cd;
-  margin-top: 60px;
+  text-align: center;
+  font-size: 14px;
 }
-
