@@ -21,38 +21,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Fade-in animation on scroll
+// Staggered fade-in animation on scroll
 const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-        }
+if (sections.length > 0) { // Safety check
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 200); // 200ms delay per section
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
     });
-}, { threshold: 0.2 });
+}
 
-sections.forEach(section => {
-    observer.observe(section);
-});
-
-const sections = document.querySelectorAll('.section');
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            setTimeout(() => {
-                entry.target.classList.add('visible');
-            }, index * 200); // 200ms delay per section
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.2 });
-
-sections.forEach(section => {
-    observer.observe(section);
-});
-
+// Parallax effect
 window.addEventListener('scroll', () => {
     const scrollPosition = window.scrollY;
-    document.body.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
+    document.body.style.backgroundPositionY = `${scrollPosition * 0.5}px`; // Subtle parallax
+});
+
+// Hide loader when page loads
+window.addEventListener('load', () => {
+    document.querySelector('.loader').classList.add('hidden');
 });
